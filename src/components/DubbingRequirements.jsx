@@ -201,8 +201,51 @@
 // export default DubbingRequirements;
 
 import React, { useState } from 'react';
+import Switcher1 from './Switcher1';
+import QvoRqquriment_Non_Ai_Dubbing from './QvoRqquriment_Non_Ai_Dubbing';
+import QVORequirements from './QVORequirements';
 
 const CheckboxGroup = ({ checkboxes, handleCheckboxChange }) => {
+  <div className="mb-4 p-4 border rounded bg-white shadow">
+  <label className="block mb-2">Target Language Dialect</label>
+
+  {/* Voice Match Needed Toggle */}
+  <label className="inline-flex items-center cursor-pointer">
+    <input
+      type="checkbox"
+      className="sr-only peer"
+    />
+    <div className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300">
+      <div className="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-full peer-checked:bg-blue-600"></div>
+    </div>
+    <span className="ms-3 text-sm font-medium text-gray-900">Voice Match Needed</span>
+  </label>
+
+  {/* Lip-Match Needed Toggle */}
+  <label className="inline-flex items-center cursor-pointer mt-2">
+    <input
+      type="checkbox"
+      className="sr-only peer"
+    />
+    <div className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300">
+      <div className="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-full peer-checked:bg-blue-600"></div>
+    </div>
+    <span className="ms-3 text-sm font-medium text-gray-900">Lip-Match Needed</span>
+  </label>
+
+  {/* Premix Files Shared by Client Toggle */}
+  <label className="inline-flex items-center cursor-pointer mt-2">
+    <input
+      type="checkbox"
+      className="sr-only peer"
+    />
+    <div className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300">
+      <div className="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-full peer-checked:bg-blue-600"></div>
+    </div>
+    <span className="ms-3 text-sm font-medium text-gray-900">Premix Files Shared by Client</span>
+  </label>
+</div>
+
   return (
     <div className="mb-4 p-4 border rounded bg-white shadow">
       <h4 className="font-semibold mb-2">Checkbox Options</h4>
@@ -337,7 +380,9 @@ const DubbingRequirements = () => {
     setSeconds(e.target.value);
   };
 
+  
   return (
+    <>
     <div className="mb-6">
       <h3 className="text-xl font-semibold mb-2">AI Dubbing Requirements</h3>
       
@@ -357,7 +402,7 @@ const DubbingRequirements = () => {
       <div className="mb-4 p-4 border rounded bg-white shadow">
         <label className="block mb-2">Service Type</label>
         <select className="w-full border p-2 rounded mb-4">
-          <option>Dubbing</option>
+          <option>AI Dubbing</option>
           <option>Voiceover</option>
           <option>Translation</option>
         </select>
@@ -372,7 +417,7 @@ const DubbingRequirements = () => {
           <option>English to German</option>
         </select>
       </div>
-
+      <QVORequirements />
       {/* Minutes and Seconds Input */}
       <div className="mb-4 p-4 border rounded bg-white shadow">
         <label className="block mb-2 text-sm font-medium text-gray-900">Duration:</label>
@@ -404,18 +449,53 @@ const DubbingRequirements = () => {
         </div>
       </div>
       
+      
           {/* Target Language */}
       <div className="mb-4 p-4 border rounded bg-white shadow">
         <label className="block mb-2">Target Language Dialect</label>
         <select className="w-full border p-2 rounded mb-4">
-          <option>Voice Match Needed</option>
-          <option>Lip-Match Needed</option>
+          <option>Mexican Spanish</option>
+          <option>Canadian French</option>
           <option>Premix Files Shared by client</option>
         </select>
       </div>      
 
-    
+    {/* voice match lip match button */}
+    <div className="mb-4 p-4 border rounded bg-white shadow">
+  <div className="flex items-center mb-2">
+    <label className="mr-2 text-sm font-medium text-gray-900">Voice Match Needed</label>
+    <div className="flex-1">
+      <Switcher1 />
     </div>
+  </div>
+  
+  <div className="flex items-center mb-2">
+    <label className="mr-2 text-sm font-medium text-gray-900">Lip Match Needed</label>
+    <div className="flex-1">
+      <Switcher1 />
+    </div>
+  </div>
+  
+  <div className="flex items-center">
+    <label className="mr-2 text-sm font-medium text-gray-900">Premix Files Shared by Client</label>
+    <div className="flex-1">
+      <Switcher1 />
+    </div>
+  </div>
+</div>
+
+      {/* Deliverable Type */}
+      <div className="mb-4 p-4 border rounded bg-white shadow">
+        <label className="block mb-2">Language Pair</label>
+        <select className="w-full border p-2 rounded mb-4">
+          <option>High-Res</option>
+   
+        </select>
+      </div>
+    </div>
+      
+      <QvoRqquriment_Non_Ai_Dubbing/>
+    </>
   );
 };
 

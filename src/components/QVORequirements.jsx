@@ -44,7 +44,6 @@ const QVORequirements = () => {
           Female
         </label>
       </div>
-      
     </div>
   );
 };
