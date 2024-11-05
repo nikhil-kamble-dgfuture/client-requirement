@@ -921,8 +921,7 @@
 // export default ClientQuoteRequirement;
 
 
-
-//2pm 05/11/2024
+//?
 import React, { useState } from 'react';
 
 const DubbingRequirements = () => {
@@ -941,19 +940,18 @@ const DubbingRequirements = () => {
   const [duration, setDuration] = useState(0);
   const [deadline, setDeadline] = useState('');
   const [languagePair, setLanguagePair] = useState('English to Spanish');
-  const [targetDialect, setTargetDialect] = useState('Mexican Spanish');
+  const [targetDialect, setTargetDialect] = useState('Mexican Spanish'); // Default value
   const [maleFemale, setMaleFemale] = useState({
     male: false,
     female: false,
     both: false,
-  });  // Tracking male, female, and both selections
+  });
   const [outputFormat, setOutputFormat] = useState('mp3');
   const [deliverableType, setDeliverableType] = useState('low-res');
-  const [meFilesShared, setMeFilesShared] = useState(false);  // M&E Files Shared by Client
-  const [onScreenEditing, setOnScreenEditing] = useState(false);  // On Screen Editing
+  const [meFilesShared, setMeFilesShared] = useState(false);
+  const [onScreenEditing, setOnScreenEditing] = useState(false);
   const [openProjectFiles, setOpenProjectFiles] = useState(false);
 
-  // State for holding form data to display in table
   const [formData, setFormData] = useState(null);
 
   const handleCheckboxChange = (e) => {
@@ -1023,7 +1021,6 @@ const DubbingRequirements = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Collect all form data into an object
     const collectedFormData = {
       checkboxes,
       openClosed,
@@ -1041,13 +1038,11 @@ const DubbingRequirements = () => {
       openProjectFiles,
     };
 
-    // Set the collected data into the state to display in table
     setFormData(collectedFormData);
   };
 
   return (
     <div>
-      {/* Form */}
       <form onSubmit={handleSubmit} className="mb-6">
         <h3 className="text-xl font-semibold mb-2">AI Dubbing Requirements</h3>
 
@@ -1099,10 +1094,24 @@ const DubbingRequirements = () => {
           </div>
         </div>
 
+        {/* Deadline Field */}
+        <div className="mb-4 p-4 border rounded bg-white shadow">
+          <label className="block mb-2">Deadline</label>
+          <input
+            type="date"
+            value={deadline}
+            onChange={handleDeadlineChange}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          />
+        </div>
+
         {/* Language Pair and Target Dialect */}
         <div className="mb-4 p-4 border rounded bg-white shadow">
           <label className="block mb-2">Language Pair</label>
-          <select className="w-full border p-2 rounded mb-4" value={languagePair} onChange={handleLanguagePairChange}>
+          <select
+            className="w-full border p-2 rounded mb-4"
+            onChange={handleLanguagePairChange}
+          >
             <option>English to Spanish</option>
             <option>English to French</option>
             <option>English to German</option>
@@ -1111,9 +1120,15 @@ const DubbingRequirements = () => {
 
         <div className="mb-4 p-4 border rounded bg-white shadow">
           <label className="block mb-2">Target Language Dialect</label>
-          <select className="w-full border p-2 rounded mb-4" value={targetDialect} onChange={handleTargetDialectChange}>
-            <option>Mexican Spanish</option>
-            <option>Castilian Spanish</option>
+          <select
+            className="w-full border p-2 rounded mb-4"
+            value={targetDialect}
+            onChange={handleTargetDialectChange}
+          >
+            <option value="Mexican Spanish">Mexican Spanish</option>
+            <option value="Castilian Spanish">Canedian French</option>
+            <option value="Castilian Spanish">Standard German</option>
+
           </select>
         </div>
 
@@ -1156,7 +1171,11 @@ const DubbingRequirements = () => {
 
         <div className="mb-4 p-4 border rounded bg-white shadow">
           <label className="block mb-2">Output Format</label>
-          <select className="w-full border p-2 rounded mb-4" value={outputFormat} onChange={handleOutputFormatChange}>
+          <select
+            className="w-full border p-2 rounded mb-4"
+            value={outputFormat}
+            onChange={handleOutputFormatChange}
+          >
             <option>mp3</option>
             <option>mp4</option>
             <option>wav</option>
@@ -1168,15 +1187,30 @@ const DubbingRequirements = () => {
         {/* Deliverable Type */}
         <div className="mb-4 p-4 border rounded bg-white shadow">
           <label className="block mb-2">Deliverable Type</label>
-          <select className="w-full border p-2 rounded mb-4" value={deliverableType} onChange={handleDeliverableTypeChange}>
+          <select
+            className="w-full border p-2 rounded mb-4"
+            value={deliverableType}
+            onChange={handleDeliverableTypeChange}
+          >
             <option>low-res</option>
             <option>high-res</option>
-            <option>premix</option>
-            <option>mix</option>
           </select>
         </div>
 
-        {/* M&E Files Shared by Client */}
+        {/* Missing Fields Added Below */}
+
+        <div className="mb-4 p-4 border rounded bg-white shadow">
+          <label className="block mb-2">Caption Type</label>
+          <select
+            className="w-full border p-2 rounded mb-4"
+            value={captionType}
+            onChange={handleCaptionTypeChange}
+          >
+            <option>Closed</option>
+            <option>Open</option>
+          </select>
+        </div>
+
         <div className="mb-4 p-4 border rounded bg-white shadow">
           <label className="block mb-2">M&E Files Shared by Client</label>
           <input
@@ -1185,29 +1219,9 @@ const DubbingRequirements = () => {
             onChange={handleMeFilesSharedChange}
             className="mr-2"
           />
+          Yes
         </div>
 
-        {/* Deadline */}
-        <div className="mb-4 p-4 border rounded bg-white shadow">
-          <label className="block mb-2">Deadline</label>
-          <input
-            type="date"
-            value={deadline}
-            onChange={handleDeadlineChange}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          />
-        </div>
-
-        {/* Caption Type */}
-        <div className="mb-4 p-4 border rounded bg-white shadow">
-          <label className="block mb-2">Caption Type</label>
-          <select className="w-full border p-2 rounded mb-4" value={captionType} onChange={handleCaptionTypeChange}>
-            <option>No</option>
-            <option>Yes</option>
-          </select>
-        </div>
-
-        {/* On Screen Editing */}
         <div className="mb-4 p-4 border rounded bg-white shadow">
           <label className="block mb-2">On Screen Editing</label>
           <input
@@ -1216,9 +1230,9 @@ const DubbingRequirements = () => {
             onChange={handleOnScreenEditingChange}
             className="mr-2"
           />
+          Yes
         </div>
 
-        {/* Open/Project Files Provided */}
         <div className="mb-4 p-4 border rounded bg-white shadow">
           <label className="block mb-2">Open/Project Files Provided</label>
           <input
@@ -1227,9 +1241,14 @@ const DubbingRequirements = () => {
             onChange={handleOpenProjectFilesChange}
             className="mr-2"
           />
+          Yes
         </div>
 
-        <button type="submit" className="mt-6 bg-blue-600 text-white px-4 py-2 rounded">
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className="mt-6 bg-blue-600 text-white px-4 py-2 rounded"
+        >
           Submit
         </button>
       </form>
@@ -1247,48 +1266,62 @@ const DubbingRequirements = () => {
             </thead>
             <tbody>
               <tr>
-                <td className="border px-4 py-2">Service Type</td>
-                <td className="border px-4 py-2">{languagePair}</td>
+                <td className="border px-4 py-2">Language Pair</td>
+                <td className="border px-4 py-2">{formData.languagePair}</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">Target Language Dialect</td>
+                <td className="border px-4 py-2">{formData.targetDialect}</td>
               </tr>
               <tr>
                 <td className="border px-4 py-2">Number of Files</td>
-                <td className="border px-4 py-2">{numberOfFiles}</td>
+                <td className="border px-4 py-2">{formData.numberOfFiles}</td>
               </tr>
               <tr>
                 <td className="border px-4 py-2">Duration</td>
-                <td className="border px-4 py-2">{duration}</td>
+                <td className="border px-4 py-2">{formData.duration}</td>
               </tr>
               <tr>
                 <td className="border px-4 py-2">Deadline</td>
-                <td className="border px-4 py-2">{deadline}</td>
+                <td className="border px-4 py-2">{formData.deadline}</td>
               </tr>
               <tr>
                 <td className="border px-4 py-2">Male/Female</td>
-                <td className="border px-4 py-2">{maleFemale.male ? 'Male' : ''}{maleFemale.female ? ' Female' : ''}{maleFemale.both ? ' Both' : ''}</td>
+                <td className="border px-4 py-2">
+                  {formData.maleFemale.male && 'Male '}
+                  {formData.maleFemale.female && 'Female '}
+                  {formData.maleFemale.both && 'Both'}
+                </td>
               </tr>
               <tr>
                 <td className="border px-4 py-2">Output Format</td>
-                <td className="border px-4 py-2">{outputFormat}</td>
+                <td className="border px-4 py-2">{formData.outputFormat}</td>
               </tr>
               <tr>
                 <td className="border px-4 py-2">Deliverable Type</td>
-                <td className="border px-4 py-2">{deliverableType}</td>
+                <td className="border px-4 py-2">{formData.deliverableType}</td>
               </tr>
               <tr>
                 <td className="border px-4 py-2">M&E Files Shared</td>
-                <td className="border px-4 py-2">{meFilesShared ? 'Yes' : 'No'}</td>
+                <td className="border px-4 py-2">
+                  {formData.meFilesShared ? 'Yes' : 'No'}
+                </td>
               </tr>
               <tr>
                 <td className="border px-4 py-2">Caption Type</td>
-                <td className="border px-4 py-2">{captionType}</td>
+                <td className="border px-4 py-2">{formData.captionType}</td>
               </tr>
               <tr>
                 <td className="border px-4 py-2">On Screen Editing</td>
-                <td className="border px-4 py-2">{onScreenEditing ? 'Yes' : 'No'}</td>
+                <td className="border px-4 py-2">
+                  {formData.onScreenEditing ? 'Yes' : 'No'}
+                </td>
               </tr>
               <tr>
                 <td className="border px-4 py-2">Open/Project Files Provided</td>
-                <td className="border px-4 py-2">{openProjectFiles ? 'Yes' : 'No'}</td>
+                <td className="border px-4 py-2">
+                  {formData.openProjectFiles ? 'Yes' : 'No'}
+                </td>
               </tr>
             </tbody>
           </table>
