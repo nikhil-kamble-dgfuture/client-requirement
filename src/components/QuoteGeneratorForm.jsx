@@ -291,16 +291,7 @@ const QuoteGeneratorForm = () => {
         </div>
       </div>
 
-      <div className="mb-4 p-4 border rounded bg-white shadow">
-        <label className="block mb-2">Deadline</label>
-        <input
-          type="date"
-          value={deadline}
-          onChange={handleDeadlineChange}
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          required
-        />
-      </div>
+  
 
       <div className="mb-4 p-4 border rounded bg-white shadow">
         <h4 className="font-semibold mb-2">Open/Closed Options</h4>
@@ -313,7 +304,7 @@ const QuoteGeneratorForm = () => {
             onChange={handleOpenClosedChange}
             className="mr-2"
           />
-          Open
+          On Screen Editing
         </label>
         <label className="block mb-2">
           <input
@@ -324,10 +315,28 @@ const QuoteGeneratorForm = () => {
             onChange={handleOpenClosedChange}
             className="mr-2"
           />
-          Closed
+          Open/Project Files Provided
         </label>
       </div>
 
+      <div className="mb-4 p-4 border rounded bg-white shadow">
+        <label className="block mb-2">Output Format</label>
+        <select className="w-full border p-2 rounded mb-4">
+          <option>MP4</option>
+        </select>
+      </div>
+
+      {/* Deadline */}
+      <div className="mb-4 p-4 border rounded bg-white shadow">
+        <label className="block mb-2">Deadline</label>
+        <input
+          type="date"
+          value={deadline}
+          onChange={handleDeadlineChange}
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          required
+        />
+      </div>
       <button type="submit" className="mt-6 bg-blue-600 text-white px-4 py-2 rounded">
         Generate Quote
       </button>
