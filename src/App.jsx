@@ -6,6 +6,7 @@ import QuoteGeneratorForm from './components/QuoteGeneratorForm';
 import AIDubbingRequirement from './components/AIDubbingRequirement';
 import ClientQuoteRequirement from './components/ClientQuoteRequirement';
 import Footer from './components/Footer';
+import ClientQuoteRequirements from './components/ClientQuoteRequirements';
 
 function App() {
   return (
@@ -14,7 +15,9 @@ function App() {
       <Routes>
         <Route path="/" element={<QuoteGeneratorForm />} />
         <Route path="/ai-dubbing-requirement" element={<AIDubbingRequirement />} />
-        <Route path="/client-quote-requirement" element={<ClientQuoteRequirement />} />
+        {/* <Route path="/client-quote-requirement" element={<ClientQuoteRequirement />} /> */}
+        <Route path="/client-quote-requirement" element={<ClientQuoteRequirements />} />
+
       </Routes>
       <Footer />
     </Router>
