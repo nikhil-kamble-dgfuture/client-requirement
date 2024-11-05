@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import QuoteGeneratorForm from './components/QuoteGeneratorForm';
 import AIDubbingRequirement from './components/AIDubbingRequirement';
 import ClientQuoteRequirement from './components/ClientQuoteRequirement';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/ai-dubbing-requirement" element={<AIDubbingRequirement />} />
         <Route path="/client-quote-requirement" element={<ClientQuoteRequirement />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
