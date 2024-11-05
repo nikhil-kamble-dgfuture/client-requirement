@@ -1206,8 +1206,8 @@ const DubbingRequirements = () => {
             value={captionType}
             onChange={handleCaptionTypeChange}
           >
-            <option>Closed</option>
-            <option>Open</option>
+            <option>No</option>
+            <option>Yes</option>
           </select>
         </div>
 
