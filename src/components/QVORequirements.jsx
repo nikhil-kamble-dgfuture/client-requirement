@@ -9,7 +9,7 @@ const QVORequirements = () => {
 
   return (
     <div className="mb-6">
-      <h3 className="text-xl font-semibold mb-2">QVO Requirements</h3>
+      {/* <h3 className="text-xl font-semibold mb-2">QVO Requirements</h3> */}
       {/* <label className="block mb-2">Service Type</label> */}
       {/* <select className="w-full border p-2 rounded mb-4">
         <option>Voiceover</option>
