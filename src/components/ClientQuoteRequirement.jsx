@@ -605,6 +605,8 @@ const CheckboxGroup = ({ checkboxes, handleCheckboxChange, handleNumberOfFilesCh
       </div>
 
       {/* AI Voice Over */}
+      <div className="mb-4 p-4 border rounded bg-white shadow">
+
       <h4 className="font-semibold mb-2">Checkbox Options</h4>
       <label className="block mb-2">
         <input
@@ -616,37 +618,9 @@ const CheckboxGroup = ({ checkboxes, handleCheckboxChange, handleNumberOfFilesCh
         />
         AI Voiceover
       </label>
-
-      {/* Number of Files and Duration */}
-      <div className="mb-4 p-4 border rounded bg-white shadow">
-        <label className="block mb-2 text-sm font-medium text-gray-900">Number of Files and Duration</label>
-        <div className="flex space-x-4">
-          <div className="flex-1">
-            <label htmlFor="files-input" className="block mb-1">Number of Files:</label>
-            <input 
-              type="number" 
-              id="files-input" 
-              value={numberOfFiles}
-              onChange={handleNumberOfFilesChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
-              placeholder="0" 
-              required 
-            />
-          </div>
-          <div className="flex-1">
-            <label htmlFor="duration-input" className="block mb-1">Total Duration</label>
-            <input 
-              type="number" 
-              id="duration-input" 
-              value={duration}
-              onChange={handleDurationChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
-              placeholder="0" 
-              required 
-            />
-          </div>
-        </div>
       </div>
+
+      
     </div>
   );
 };
@@ -760,6 +734,40 @@ const DubbingRequirements = () => {
         handleOpenClosedChange={handleOpenClosedChange}
       />
 
+
+
+      {/* Number of Files and Duration */}
+      <div className="mb-4 p-4 border rounded bg-white shadow">
+        <label className="block mb-2 text-sm font-medium text-gray-900">Number of Files and Duration</label>
+        <div className="flex space-x-4">
+          <div className="flex-1">
+            <label htmlFor="files-input" className="block mb-1">Number of Files:</label>
+            <input 
+              type="number" 
+              id="files-input" 
+              value={numberOfFiles}
+              onChange={handleNumberOfFilesChange}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+              placeholder="0" 
+              required 
+            />
+          </div>
+          <div className="flex-1">
+            <label htmlFor="duration-input" className="block mb-1">Total Duration</label>
+            <input 
+              type="number" 
+              id="duration-input" 
+              value={duration}
+              onChange={handleDurationChange}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+              placeholder="0" 
+              required 
+            />
+          </div>
+        </div>
+      </div>
+
+
       {/* Language Pair */}
       <div className="mb-4 p-4 border rounded bg-white shadow">
         <label className="block mb-2">Language Pair</label>
@@ -774,11 +782,13 @@ const DubbingRequirements = () => {
       <div className="mb-4 p-4 border rounded bg-white shadow">
         <label className="block mb-2">Target Language Dialect</label>
         <select className="w-full border p-2 rounded mb-4">
-          <option>Voice Match Needed</option>
-          <option>Lip-Match Needed</option>
-          <option>Premix Files Shared by client</option>
+          <option>Mexican Spanish</option>
+          <option>Canadian French</option>
+          <option>Standered German</option>
         </select>
       </div>
+
+      <h3 className="text-xl font-semibold mb-2">QVO Requirements</h3>
 
       {/* M&E Files Shared by Client */}
       <div className="mb-4 p-4 border rounded bg-white shadow">
@@ -789,6 +799,8 @@ const DubbingRequirements = () => {
           </div>
         </div>
       </div>
+
+      
 
       {/* Number of Files and Duration */}
       <div className="mb-4 p-4 border rounded bg-white shadow">
@@ -826,6 +838,54 @@ const DubbingRequirements = () => {
 
       {/* Caption Type Toggle */}
       <CaptionTypeToggle captionType={captionType} setCaptionType={setCaptionType} />
+
+      {/* On Screen Editing */}
+      <div className="mb-4 p-4 border rounded bg-white shadow">
+
+      <div className="flex items-center mb-2">
+      <label className="mr-2 text-sm font-medium text-gray-900">On Screen Editing</label>
+      <div className="flex-1">
+      <Switcher1 />
+      </div>
+      </div>
+
+      </div>
+
+      <div className="mb-4 p-4 border rounded bg-white shadow">
+
+        <div className="flex items-center mb-2">
+        <label className="mr-2 text-sm font-medium text-gray-900">Open/Project Files Provided</label>
+        <div className="flex-1">
+        <Switcher1 />
+        </div>
+        </div>        
+
+        </div>
+
+
+      {/* output format */}
+          <div className="mb-4 p-4 border rounded bg-white shadow">
+        <label className="block mb-2">Output Format</label>
+        <select className="w-full border p-2 rounded mb-4">
+          <option>mp3</option>
+          <option>mp4</option>
+          <option>wav</option>
+          <option>srt</option>
+          <option>vtt</option>
+        </select>
+        </div>
+
+        
+      {/* output format */}
+      <div className="mb-4 p-4 border rounded bg-white shadow">
+        <label className="block mb-2">Deliverable Type</label>
+        <select className="w-full border p-2 rounded mb-4">
+          <option>low-res</option>
+          <option>high-res</option>
+          <option>premix</option>
+          <option>mix</option>
+        </select>
+        </div>
 
       {/* Deadline */}
       <div className="mb-4 p-4 border rounded bg-white shadow">

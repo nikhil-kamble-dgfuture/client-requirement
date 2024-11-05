@@ -417,6 +417,8 @@ const DubbingRequirements = () => {
           <option>English to German</option>
         </select>
       </div>
+      <h3 className="text-xl font-semibold mb-2">QVO Requirements </h3>
+
       <QVORequirements />
       {/* Minutes and Seconds Input */}
       <div className="mb-4 p-4 border rounded bg-white shadow">
@@ -446,7 +448,7 @@ const DubbingRequirements = () => {
               required 
             />
           </div>
-        </div>
+        </div>   
       </div>
       
       
@@ -486,14 +488,17 @@ const DubbingRequirements = () => {
 
       {/* Deliverable Type */}
       <div className="mb-4 p-4 border rounded bg-white shadow">
-        <label className="block mb-2">Language Pair</label>
+        <label className="block mb-2">Deliverable Type</label>
         <select className="w-full border p-2 rounded mb-4">
           <option>High-Res</option>
    
         </select>
       </div>
     </div>
+    <h3 className="text-xl font-semibold mb-2">QVO Requirements (Non-AI Dubbing)
       
+    </h3>
+
       <QvoRqquriment_Non_Ai_Dubbing/>
     </>
   );
