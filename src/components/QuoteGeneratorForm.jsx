@@ -251,7 +251,7 @@ const QuoteGeneratorForm = () => {
 
   return (
     <form className="bg-white p-6 rounded shadow-lg max-w-3xl mx-auto mt-8" onSubmit={handleSubmit}>
-      <h2 className="text-2xl font-bold mb-4">Client Quote Generator</h2>
+      {/* <h2 className="text-2xl font-bold mb-4">Client Quote Generator</h2> */}
       <DubbingRequirements />
 
       <div className="mb-4 p-4 border rounded bg-white shadow">

@@ -1044,7 +1044,7 @@ const DubbingRequirements = () => {
   return (
     <div>
       <form onSubmit={handleSubmit} className="mb-6">
-        <h3 className="text-xl font-semibold mb-2">AI Dubbing Requirements</h3>
+        {/* <h3 className="text-xl font-semibold mb-2">AI Dubbing Requirements</h3> */}
 
         {/* Service Type, Checkbox Options, and other fields */}
         <div className="mb-4 p-4 border rounded bg-white shadow">
